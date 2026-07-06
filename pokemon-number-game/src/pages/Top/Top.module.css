@@ -1,0 +1,322 @@
+/* ======================================
+   Top Page
+====================================== */
+
+.top {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  overflow: hidden;
+}
+
+/* ===========================
+   Overlay
+=========================== */
+
+/* .overlay {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(1px);
+
+  z-index: 1;
+} */
+
+/* ===========================
+   Main Content
+=========================== */
+
+.content {
+  position: relative;
+
+  width: 100%;
+  height: 100vh;
+
+  z-index: 2;
+
+  animation: fadeIn 1s ease;
+}
+
+/* ===========================
+   Logo
+=========================== */
+
+.logoArea {
+  position: absolute;
+
+  top: 5%;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: min(650px, 90%);
+}
+
+/* ===========================
+   Start Button
+=========================== */
+
+.startArea {
+  position: absolute;
+
+  left: 50%;
+  bottom: 14%;
+
+  transform: translateX(-50%);
+}
+
+/* ===========================
+   Left Bottom
+=========================== */
+
+.leftMenu {
+  position: absolute;
+
+  left: 40px;
+  bottom: 40px;
+}
+
+/* ===========================
+   Right Bottom
+=========================== */
+
+.rightMenu {
+  position: absolute;
+
+  right: 40px;
+  bottom: 40px;
+
+  display: flex;
+  gap: 16px;
+}
+
+/* ===========================
+   Button Animation
+=========================== */
+
+.startArea button,
+.leftMenu button,
+.rightMenu button {
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    filter .25s ease;
+}
+
+.startArea button:hover,
+.leftMenu button:hover,
+.rightMenu button:hover {
+
+  transform: translateY(-5px);
+
+  filter: brightness(1.05);
+
+  box-shadow:
+      0 12px 30px rgba(0,0,0,.25);
+}
+
+.startArea button:active,
+.leftMenu button:active,
+.rightMenu button:active {
+
+  transform: scale(.97);
+}
+
+/* ===========================
+   Fade
+=========================== */
+
+@keyframes fadeIn {
+
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+/* ===========================
+   Tablet
+=========================== */
+
+@media (max-width:1024px){
+
+.logoArea{
+
+    width:80%;
+
+}
+
+.startArea{
+
+    bottom:12%;
+
+}
+
+.leftMenu{
+
+    left:24px;
+    bottom:24px;
+
+}
+
+.rightMenu{
+
+    right:24px;
+    bottom:24px;
+
+}
+
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width:768px){
+
+.content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:flex-end;
+
+    align-items:center;
+
+    padding-bottom:40px;
+
+}
+
+.logoArea{
+
+    top:6%;
+    width:92%;
+
+}
+
+.startArea{
+
+    position:static;
+
+    transform:none;
+
+    margin-bottom:24px;
+
+}
+
+.leftMenu{
+
+    position:static;
+
+    margin-bottom:12px;
+
+}
+
+.rightMenu{
+
+    position:static;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+}
+
+/* ===========================
+   Small Mobile
+=========================== */
+
+@media (max-width:480px){
+
+.logoArea{
+    top:8%;
+}
+
+.startArea button{
+    width:280px;
+}
+
+.leftMenu button,
+.rightMenu button{
+    width:220px;
+}
+
+}
+
+/* =========================
+   透明ボタン共通
+========================= */
+
+.startButton,
+.settingButton,
+.companyButton,
+.policyButton{
+    position:absolute;
+
+    background:transparent;
+
+    border:none;
+
+    cursor:pointer;
+}
+
+.startButton{
+    left:50%;
+    bottom:5%;
+    transform:translateX(-50%);
+    width:380px;
+    height:95px;
+}
+
+.settingButton{
+    left:18px;
+    bottom:20px;
+    width:95px;
+    height:95px;
+}
+
+.companyButton{
+    right:150px;
+    bottom:20px;
+    width:120px;
+    height:70px;
+}
+
+.policyButton{
+    right:18px;
+    bottom:20px;
+    width:120px;
+    height:70px;
+}
+
+/* .startButton:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+} */
+
+/* ボタンホバー時に薄っすら光る演出をやめたい時 */
+.startButton:hover {
+  background: transparent;
+}

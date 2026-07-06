@@ -1,0 +1,37 @@
+.footer {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.btn {
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.mainBtn {
+  padding: 14px 28px;     /* 🔑 左右の余白を少しだけ狭めて、長い文字でも収まりやすくします */
+  font-size: 1.1rem;      /* 🔑 文字サイズを気持ち少しだけ調整 */
+  background: #ffcc00;
+  color: #000;
+  box-shadow: 0 4px 0 #cc9900;
+  min-width: 180px;       /* 🔑 ボタンが文字数でガタガタ動かないように最小の幅をキープ */
+}
+
+.mainBtn:active {
+  transform: translateY(4px);
+  box-shadow: none;
+}
+
+.sideBtn {
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.sideBtn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}

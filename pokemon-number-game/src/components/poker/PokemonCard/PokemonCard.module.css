@@ -1,0 +1,143 @@
+/* PokemonCard.module.css */
+.card {
+  width: 130px;
+  height: 190px;
+  background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px;
+  box-sizing: border-box;
+  position: relative;
+  border: 3px solid #ddd;
+}
+
+.legendary {
+  border: 3px solid #ffcc00;
+  background: linear-gradient(135deg, #fffcdb 0%, #fff3a1 100%);
+  box-shadow: 0 0 15px rgba(255, 204, 0, 0.6);
+}
+
+.legendTag {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffcc00;
+  color: #000;
+  font-size: 0.6rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.pokeName {
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* ここを書き換えます */
+.imgWrap {
+  background: rgba(0,0,0,0.05);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  overflow: hidden;   /* 🔑 万が一はみ出しても外に見せないお守り */
+  padding: 4px;       /* 少し内側に余白を作って枠線との接触を防ぐ */
+  box-sizing: border-box;
+}
+/* .imgWrap {
+  background: rgba(0,0,0,0.05);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+} */
+
+.imgWrap img {
+  max-width: 100%;    /* 🔑 横幅は親枠（.imgWrap）を絶対に超えない */
+  max-height: 100%;   /* 🔑 縦幅も親枠を絶対に超えない */
+  object-fit: contain; /* 🔑 縦横比を保ったまま、枠内に綺麗に収める */
+}
+
+/* .imgWrap img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+} */
+
+.pokeHeight {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #dc3545;
+  text-align: center;
+  font-family: 'Impact', 'Arial Black', sans-serif;
+}
+.unit {
+  font-size: 0.9rem;
+  color: #666;
+  margin-left: 2px;
+}
+
+/* 裏面用のスタイル */
+.cardBack {
+  background: #cc0000;
+  border: 3px solid #fff;
+}
+.backDesign {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: repeating-linear-gradient(45deg, #b30000, #b30000 10px, #cc0000 10px, #cc0000 20px);
+  border-radius: 6px;
+}
+
+/* 🔑 修正前（もし黄色系になっていたら、ここを青系に変更します） */
+.selected {
+  border-color: #00e5ff !important; /* 💡 鮮やかなサイバーブルー */
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.8) !important; /* 💡 青く光るエフェクト */
+  transform: translateY(-15px); /* 💡 上にスッと浮き上がる動きはそのままキープ */
+}
+
+/* ホバー時のカーソルをポインターにする */
+.card {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+/* 🔑 交換中のカード専用のスタイル */
+.loadingCard {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 3px dashed rgba(255, 255, 255, 0.3) !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: none !important;
+  pointer-events: none; /* 通信中はクリックできないようにする */
+}
+
+.loadingSpinner {
+  font-size: 2rem;
+  animation: spin 1s linear infinite; /* くるくる回すアニメーション */
+}
+
+.loadingText {
+  font-size: 0.7rem;
+  color: #aaa;
+  margin-top: 8px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

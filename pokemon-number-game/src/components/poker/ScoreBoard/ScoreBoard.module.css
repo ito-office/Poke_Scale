@@ -1,0 +1,39 @@
+/* ScoreBoard.module.css */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 760px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 12px 24px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.scoreBoard {
+  text-align: center;
+  background: #111;
+  border: 2px solid #ffcc00;
+  box-shadow: 0 0 15px rgba(255, 204, 0, 0.4);
+  padding: 4px 24px;
+  border-radius: 8px;
+}
+
+.label {
+  font-size: 0.75rem;
+  color: #aaa;
+  letter-spacing: 1px;
+}
+
+.value {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffcc00;
+  font-family: monospace;
+}
+
+.unit {
+  font-size: 1rem;
+  color: #fff;
+}

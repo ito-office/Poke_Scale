@@ -1,0 +1,1 @@
+// import styles from './TitleLogo.module.css';export default function TitleLogo(){return <h1 className={styles.logo}>PokeScale</h1>}

@@ -1,0 +1,56 @@
+.home {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+
+  width: 100%;
+  max-width: 1440px;
+  height: 100vh;
+
+  margin: 0 auto;
+}
+
+.pokedex{
+    position:absolute;
+    top:12%;
+    left:6%;
+
+    width:260px;
+}
+
+.hallOfFame{
+    position:absolute;
+    top:12%;
+    right:6%;
+
+    width:260px;
+}
+
+.poker{
+    position:absolute;
+    bottom:12%;
+    left:6%;
+
+    width:260px;
+}
+
+.blackjack{
+    position:absolute;
+    bottom:12%;
+    right:6%;
+
+    width:260px;
+}
