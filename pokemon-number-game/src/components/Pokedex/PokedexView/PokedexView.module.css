@@ -1,0 +1,235 @@
+/* src/components/Pokedex/PokedexView/PokedexView.module.css */
+
+.container {
+  flex: 1;
+  background: #ffffff;
+}
+
+/* --- ヘッダーエリア --- */
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.titleBox {
+  background: #f5f0f0;
+  border: 1px solid #e0e0e0;
+  color: #999;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 12px 24px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.searchWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 300px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  color: #666;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px 12px 10px 36px;
+  background: #d9d9d9;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #333;
+}
+
+.searchInput::placeholder {
+  color: #fff;
+}
+
+/* --- サブヘッダー（タブ・コントロール群） --- */
+.subHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.tabs {
+  display: flex;
+  gap: 12px;
+}
+
+.tab {
+  background: #f0f0f0;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #999;
+  cursor: pointer;
+}
+
+.tabActive {
+  background: #f3a673;
+  color: #ffffff;
+}
+
+.rightControls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.toggleLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  color: #666;
+  background: #f5f5f5;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  user-select: none;
+}
+
+.toggleInput {
+  cursor: pointer;
+}
+
+.badge {
+  background: #cccccc;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* --- 特殊コントロール（ソート・地方） --- */
+.sortControl, .regionSelector {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  background: #fdfdfd;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.sortBtn, .regionBtn {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #666;
+}
+
+.sortBtnActive, .regionBtnActive {
+  background: #f3a673;
+  color: white;
+  border-color: #f3a673;
+}
+
+/* --- グリッドとカードレイアウト --- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
+  gap: 20px;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.imagePlaceholder {
+  background: #e6e6e6;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 12px;
+  border-radius: 4px;
+}
+
+.pokemonImage {
+  width: 85%;
+  height: 85%;
+  object-fit: contain;
+}
+
+.cardInfo {
+  padding: 0 12px 12px 12px;
+}
+
+.pokemonIdName {
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.pokemonStats {
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+/* --- 未発見状態（シルエット）の演出 --- */
+.cardUncaptured {
+  background: #f9f9f9;
+  border-style: dashed;
+  border-color: #ccc;
+}
+
+/* 画像や絵文字の明るさを0にして真っ黒な「影」にする */
+.silhouette span,
+.silhouette img {
+  filter: brightness(0);
+  opacity: 0.25; /* シルエットが強すぎないよう少し透過 */
+}
+
+/* --- 自動スクロール読み込みの目印 --- */
+.loadingTrigger {
+  grid-column: 1 / -1; /* グリッドの端から端まで広げる */
+  text-align: center;
+  padding: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #a0a0a0;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+/* 読み込み中テキストのふわふわ点滅アニメーション */
+@keyframes pulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+.noData {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px;
+  color: #999;
+}

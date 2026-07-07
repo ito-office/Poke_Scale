@@ -1,0 +1,237 @@
+/* src/components/RecordsView/RecordsView.module.css */
+
+.wrapper {
+  background-color: #f3f4f6; 
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 1000px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 12px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #111827;
+  margin: 0;
+}
+
+.homeBtn {
+  text-decoration: none;
+  color: #4b5563;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 6px 12px;
+  background: #f3f4f6;
+  border-radius: 4px;
+}
+.homeBtn:hover {
+  background: #e5e7eb;
+}
+
+.spacer {
+  width: 80px; 
+}
+
+.tabRow {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.tabBtn {
+  flex: 1;
+  max-width: 200px;
+  padding: 10px 0;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  background-color: #f3f4f6;
+  color: #9ca3af;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tabActive {
+  background-color: #f3a673; 
+  color: #ffffff;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+.summaryBox {
+  flex: 1;
+  max-width: 300px;
+  border: 2px solid #f3a673;
+  border-radius: 9999px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 24px;
+  background: #fff;
+}
+
+.summaryLabel {
+  font-size: 14px;
+  color: #374151;
+  font-weight: bold;
+}
+
+.summaryValue {
+  font-size: 20px;
+  font-weight: 200; 
+  color: #000;
+}
+
+.rankingSection {
+  background-color: #eaeaea; 
+  padding: 16px;
+}
+
+.sectionTitle {
+  background-color: #8b8b8b; 
+  color: #ffffff;
+  display: inline-block;
+  padding: 6px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.rankList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rankRow {
+  background-color: #cccccc; 
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  overflow: hidden;
+}
+
+.rankInfoBox {
+  min-width: 130px;
+  color: #ffffff;
+}
+
+.rankNumber {
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.errorInfo {
+  font-size: 12px;
+}
+.errorValue {
+  font-size: 15px;
+  font-weight: bold;
+}
+.targetValue {
+  opacity: 0.8;
+}
+
+.pokemonScrollArea {
+  flex: 1;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto; 
+  padding-bottom: 4px;
+}
+
+.pokemonScrollArea::-webkit-scrollbar {
+  height: 4px;
+}
+.pokemonScrollArea::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.2);
+  border-radius: 2px;
+}
+
+.miniCard {
+  background-color: #ffffff;
+  border-radius: 4px;
+  padding: 6px;
+  min-width: 70px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.imgPlaceholder {
+  background-color: #e5e7eb;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.pokeImg {
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+}
+
+.pokeName {
+  font-size: 10px;
+  font-weight: bold;
+  color: #000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pokeWeight {
+  font-size: 9px;
+  color: #666;
+}
+
+.bottomBar {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  background-color: #71717a;
+  padding: 12px;
+}
+
+.actionBtn {
+  background-color: #cccccc;
+  color: #ffffff;
+  border: none;
+  padding: 10px 32px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+.actionBtn:hover {
+  background-color: #b7b7b7;
+}
