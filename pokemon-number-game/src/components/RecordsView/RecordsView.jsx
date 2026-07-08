@@ -1,18 +1,32 @@
 // src/components/RecordsView/RecordsView.jsx
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import styles from './RecordsView.module.css';
 
 export default function RecordsView({ activeGame, setActiveGame, stats, rankings }) {
+
+  const navigate = useNavigate();
+  
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
         
         {/* ヘッダーエリア */}
         <div className={styles.header}>
-          <Link to="/" className={styles.homeBtn}>◀ ホームへ</Link>
-          <h1 className={styles.title}>殿堂入り（勝負の記録）</h1>
+
+          <button
+            className={styles.homeButton}
+            onClick={() => navigate("/home")}
+          >
+            ← ホームへ
+          </button>
+
+          <h1 className={styles.title}>
+            殿堂入り（勝負の記録）
+          </h1>
+
           <div className={styles.spacer}></div>
+
         </div>
 
         {/* ゲーム切り替えタブ */}
@@ -78,12 +92,25 @@ export default function RecordsView({ activeGame, setActiveGame, stats, rankings
           </div>
         </div>
 
+
         {/* 下部アクションバー */}
         <div className={styles.bottomBar}>
-          <button className={styles.actionBtn}>
-            {activeGame}の画面へ移動
-          </button>
-        </div>
+          <button
+          className={styles.actionBtn}
+          onClick={() => {
+            if (activeGame === "ポーカー") {
+              navigate("/poker");
+            } else if (activeGame === "ブラック・ジャック") {
+              navigate("/blackjack");
+            }
+          }}
+        >
+          {activeGame}の画面へ移動
+        </button>
+</div>
+
+
+       
 
       </div>
     </div>

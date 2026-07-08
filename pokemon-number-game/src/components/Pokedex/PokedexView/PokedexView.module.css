@@ -2,26 +2,34 @@
 
 .container {
   flex: 1;
-  background: #ffffff;
+  background: radial-gradient(circle at top, #243b52 0%, #0d1e2e 100%);
+  min-height: 100vh;
+  padding: 24px;
+  color: #626262;
 }
 
 /* --- ヘッダーエリア --- */
 .headerRow {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 170px 1fr 300px;
   align-items: center;
+  gap: 20px;
   margin-bottom: 16px;
+
 }
 
 .titleBox {
-  background: #f5f0f0;
-  border: 1px solid #e0e0e0;
-  color: #999;
+  background: #1a2a3a;
+  border: 1px solid #b8860b; /* ゴールドの枠 */
+  color: #f1d67d; /* タイトルはゴールド */
   font-weight: bold;
   font-size: 20px;
   padding: 12px 24px;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+
+  text-align: center;
+  justify-self: center;
 }
 
 .searchWrapper {
@@ -29,6 +37,8 @@
   display: flex;
   align-items: center;
   width: 300px;
+
+  justify-self: end;
 }
 
 .searchIcon {
@@ -150,17 +160,24 @@
 }
 
 .card {
-  background: #ffffff;
-  border: 1px solid #e0e0e0;
+background: #f1eda9e5;
+  border: 1px solid #f0e8ce;
   border-radius: 12px;
+  transition: all 0.3s ease;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s;
+  /* transition: transform 0.2s; */
 }
 
 .card:hover {
-  transform: translateY(-2px);
+  /* ホバー時はさらに明るく、彩度を高める */
+  background: #fccf65; 
+  /* 枠線を少し明るいゴールドにして輝かせる */
+  border: 1px solid #ffd700;
+  /* 浮き上がる演出と影の追加 */
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
 }
 
 .imagePlaceholder {
@@ -184,6 +201,7 @@
 }
 
 .pokemonIdName {
+  color: #1a2a3a; /* カード背景が明るいので、文字は濃い色にする */
   font-size: 15px;
   font-weight: bold;
   margin-bottom: 6px;
@@ -232,4 +250,28 @@
   text-align: center;
   padding: 40px;
   color: #999;
+}
+
+.homeButton {
+  justify-self: start;
+
+  background: #f5f0f0;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+
+  padding: 6px 12px;
+
+  font-size: 14px;
+  /* font-weight: bold; */
+  color: #666;
+
+  cursor: pointer;
+
+  transition: all .2s ease;
+}
+
+.homeButton:hover {
+  background: #f3a673;
+  color: white;
+  transform: translateY(-2px);
 }

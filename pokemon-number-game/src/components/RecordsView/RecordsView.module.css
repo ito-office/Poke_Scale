@@ -1,54 +1,61 @@
 /* src/components/RecordsView/RecordsView.module.css */
 
 .wrapper {
-  background-color: #f3f4f6; 
-  padding: 20px;
+  background: radial-gradient(circle at center, #1a2a3a 0%, #0a1a2a 100%);
   min-height: 100vh;
+  padding: 20px;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
 }
 
 .container {
-  background-color: #ffffff;
+  background: linear-gradient(180deg, #162432 0%, #0d1620 100%);
   width: 100%;
-  max-width: 1000px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  border: 2px solid #b8860b;
+  border-radius: 16px;
   padding: 24px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
   gap: 20px;
+  color: #e0e0e0;
+  /* コンテナ自体が小さくならないように制限 */
+  box-sizing: border-box; 
 }
 
 .header {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  /* 左：戻るボタン、中央：タイトル、右：spacer と同じ幅の透明な枠 */
+  grid-template-columns: 100px 1fr 100px; 
   align-items: center;
-  border-bottom: 1px solid #e5e7eb;
-  padding-bottom: 12px;
+  border-bottom: 2px solid #b8860b;
+  padding-bottom: 15px;
 }
 
 .title {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: bold;
-  color: #111827;
+  color: #f1d67d;
+  text-shadow: 0 0 10px rgba(184, 134, 11, 0.5);
   margin: 0;
+  text-align: center; /* これで grid の中央セル内で完璧にセンターに配置されます */
 }
 
-.homeBtn {
-  text-decoration: none;
-  color: #4b5563;
-  font-weight: bold;
-  font-size: 14px;
-  padding: 6px 12px;
-  background: #f3f4f6;
-  border-radius: 4px;
-}
-.homeBtn:hover {
-  background: #e5e7eb;
+.homeButton {
+  justify-self: start; /* 左寄せ */
+  background: #2a3a4a;
+  color: #fff;
+  border: 1px solid #5a6a7a;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
-.spacer {
-  width: 80px; 
+.homeButton:hover {
+  background: #3a4a5a;
 }
 
 .tabRow {
@@ -60,20 +67,21 @@
 .tabBtn {
   flex: 1;
   max-width: 200px;
-  padding: 10px 0;
-  font-size: 16px;
+  padding: 12px 0;
   font-weight: bold;
-  border: none;
-  background-color: #f3f4f6;
-  color: #9ca3af;
-  border-radius: 9999px;
+  border: 1px solid #4a5a6a;
+  background: #1a2a3a;
+  color: #8a9aab;
+  border-radius: 20px;
   cursor: pointer;
-  transition: all 0.2s;
+  white-space: nowrap; /* タブ内テキストの折り返し防止 */
 }
 
 .tabActive {
-  background-color: #f3a673; 
-  color: #ffffff;
+  background: linear-gradient(180deg, #2ecc71 0%, #27ae60 100%);
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 10px rgba(46, 204, 113, 0.3);
 }
 
 .summaryRow {
@@ -85,39 +93,30 @@
 .summaryBox {
   flex: 1;
   max-width: 300px;
-  border: 2px solid #f3a673;
-  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid #4a5a6a;
+  border-radius: 12px;
+  padding: 12px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 24px;
-  background: #fff;
-}
-
-.summaryLabel {
-  font-size: 14px;
-  color: #374151;
-  font-weight: bold;
 }
 
 .summaryValue {
-  font-size: 20px;
-  font-weight: 200; 
-  color: #000;
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
 }
 
 .rankingSection {
-  background-color: #eaeaea; 
+  background: rgba(255, 255, 255, 0.05);
   padding: 16px;
+  border-radius: 12px;
 }
 
 .sectionTitle {
-  background-color: #8b8b8b; 
-  color: #ffffff;
-  display: inline-block;
-  padding: 6px 16px;
+  color: #f1d67d;
   font-size: 14px;
-  font-weight: bold;
   margin-bottom: 12px;
 }
 
@@ -128,82 +127,80 @@
 }
 
 .rankRow {
-  background-color: #cccccc; 
-  border-radius: 12px;
+  background: linear-gradient(90deg, #2a3a4a 0%, #1a2a3a 100%);
+  border: 1px solid #4a5a6a;
+  border-radius: 8px;
   padding: 12px;
   display: flex;
   align-items: center;
-  gap: 16px;
-  overflow: hidden;
+  gap: 20px;
+  /* 重要: これにより、内部要素が圧縮されず、横スクロールエリアが確保される */
+  min-width: 0; 
 }
 
 .rankInfoBox {
   min-width: 130px;
-  color: #ffffff;
+  flex-shrink: 0; /* ここは縮まないように固定 */
 }
 
 .rankNumber {
-  font-size: 28px;
-  font-weight: bold;
-  line-height: 1;
-  margin-bottom: 4px;
+  font-size: 24px;
+  color: #f1d67d;
 }
 
-.errorInfo {
-  font-size: 12px;
-}
-.errorValue {
-  font-size: 15px;
-  font-weight: bold;
-}
-.targetValue {
-  opacity: 0.8;
-}
-
+/* --- 修正ポイント: 横スクロールエリア --- */
 .pokemonScrollArea {
-  flex: 1;
+  flex: 1; /* 残りのスペースを全て埋める */
   display: flex;
   gap: 8px;
-  overflow-x: auto; 
+  overflow-x: auto; /* 横スクロールを有効化 */
   padding-bottom: 4px;
+  /* 重要: これにより、コンテナが狭まってもカードが押しつぶされず、スクロールバーが表示される */
+  min-width: 0; 
+  width: 100%; 
 }
 
+/* スクロールバーのスタイル（お好みで） */
 .pokemonScrollArea::-webkit-scrollbar {
-  height: 4px;
+  height: 6px;
 }
 .pokemonScrollArea::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,0.2);
-  border-radius: 2px;
+  background: #5a6a7a;
+  border-radius: 3px;
 }
 
 .miniCard {
-  background-color: #ffffff;
-  border-radius: 4px;
-  padding: 6px;
-  min-width: 70px;
+  background-color: #fff;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  padding: 4px;
+  /* カードが縦並びにならないよう、flex-shrinkを明示的に0に設定 */
+  flex-shrink: 0; 
+  min-width: 70px; /* カードの最小幅 */
+  width: 70px;
   text-align: center;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .imgPlaceholder {
-  background-color: #e5e7eb;
+  background-color: #eaeaea;
   aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 4px;
+  border: 1px solid #ccc;
 }
 
 .pokeImg {
-  width: 90%;
-  height: 90%;
+  width: 80%;
+  height: 80%;
   object-fit: contain;
 }
 
 .pokeName {
   font-size: 10px;
   font-weight: bold;
-  color: #000;
+  color: #333;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -211,27 +208,24 @@
 
 .pokeWeight {
   font-size: 9px;
-  color: #666;
+  color: #777;
 }
 
 .bottomBar {
-  margin-top: auto;
+  margin-top: 20px;
   display: flex;
   justify-content: center;
-  background-color: #71717a;
-  padding: 12px;
+  background: none;
 }
 
 .actionBtn {
-  background-color: #cccccc;
-  color: #ffffff;
+  background: linear-gradient(180deg, #2ecc71 0%, #27ae60 100%);
+  color: #fff;
   border: none;
-  padding: 10px 32px;
-  font-size: 16px;
+  padding: 14px 40px;
+  font-size: 18px;
   font-weight: bold;
-  border-radius: 9999px;
+  border-radius: 30px;
   cursor: pointer;
-}
-.actionBtn:hover {
-  background-color: #b7b7b7;
+  box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
 }
